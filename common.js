@@ -44,7 +44,7 @@ MeteorGroups = function(options) {
   }
 };
 
-MeteorGroups.prototype.getOrCreateGroup = function(groupName) {
+MeteorGroups.prototype.findOrCreateGroup = function(groupName) {
   var data = {name: groupName};
   var group = this.groups.findOne(data);
   if (!group) {
