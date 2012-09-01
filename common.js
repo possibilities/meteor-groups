@@ -23,14 +23,14 @@ MeteorGroups = function(options) {
   this.groups.allow(allow);
   this.groupsToUsers.allow(allow);
 
-  var self = this;
-
   if (Meteor.is_client) {
     Meteor.subscribe('groups');
     Meteor.subscribe('groupsToUsers');
   }
 
   if (Meteor.is_server) {
+
+    var self = this;
 
     Meteor.publish('groups', function() {
       if (self.isUserInGroupName(this.userId(), self.adminGroup))
