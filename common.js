@@ -75,9 +75,10 @@ MeteorGroups.prototype.addUserToGroup = function(user, group) {
 
 MeteorGroups.prototype.addUserToGroupName = function(user, groupName) {
   var userId = _.isString(user) ? user : user._id;
-  var groupId = this.groups.findOne({name: groupName})._id;
 
-  this.addUserToGroup(userId, groupId);
+  var group = this.groups.findOne({name: groupName});
+  if (group)
+    this.addUserToGroup(userId, group._id);
 };
 
 MeteorGroups.prototype.removeUserFromGroup = function(user, group) {
@@ -107,7 +108,9 @@ MeteorGroups.prototype.isUserInGroupName = function(user, groupName) {
     return false;
 
   var userId = _.isString(user) ? user : user._id;
-  var groupId = this.groups.findOne({name: groupName})._id;
+  var group = this.groups.findOne({name: groupName});
+  if (!group)
+    return false;
 
-  return this.isUserInGroup(userId, groupId);
+  return this.isUserInGroup(userId, group._id);
 };
