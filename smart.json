@@ -3,7 +3,7 @@
   "description": "Simple system for authorization groups",
   "homepage": "https://github.com/possibilities/meteor-groups",
   "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "git": "https://github.com/possibilities/meteor-groups.git",
   "meteor": {
     "branch": "auth"
